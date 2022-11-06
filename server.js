@@ -34,7 +34,14 @@ app.use("/api/posts", postRouter);
 app.use("/api/profiles", profileRouter);
 
 //middleware
-app.use(corsMiddleware);
+var allowCrossDomain = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE, PATCH");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+};
+
+app.use(allowCrossDomain);
 app.use(notFoundMiddleware);
 app.use(errorHandleMiddleware);
 
