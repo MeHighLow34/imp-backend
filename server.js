@@ -1,5 +1,6 @@
 import express from "express";
 const app = express();
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import "express-async-errors";
@@ -21,7 +22,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(express.json());
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.json({ msg: "It Works" });
 });
