@@ -4,7 +4,9 @@ import jwt from "jsonwebtoken";
 async function auth(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer")) {
-    throw new UnAuthenticatedError("Authentication Invalid");
+    throw new UnAuthenticatedError(
+      "Authentication Invalid because " + authHeader
+    );
   }
   const token = authHeader.split(" ")[1];
   try {
@@ -13,7 +15,7 @@ async function auth(req, res, next) {
     req.user = { userId: payload.userId };
     next();
   } catch (error) {
-    throw new UnAuthenticatedError("Authentication Invalid");
+    throw new UnAuthenticatedError("Authentication Invalidinho");
   }
 }
 
