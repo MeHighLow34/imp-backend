@@ -46,8 +46,8 @@ userSchema.pre("save", async function () {
 });
 
 userSchema.methods.createJWT = function () {
-  return jwt.sign({ userId: this._id }, `${process.env.JWT_SECRET}`, {
-    expiresIn: `${process.env.JWT_LIFETIME}`,
+  return jwt.sign({ userId: this._id }, `")H@MbQeThWmZq4t7w!z%C*F-JaNdRfUj"`, {
+    expiresIn: "1d",
   });
 };
 userSchema.methods.comparePassword = async function (candidatePassword) {

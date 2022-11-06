@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
 import cors from "cors";
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 dotenv.config();
 import "express-async-errors";
 import morgan from "morgan";
