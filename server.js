@@ -16,6 +16,7 @@ import profileRouter from "./routes/profileRoutes.js";
 //middleware
 import errorHandleMiddleware from "./middleware/error-handler.js";
 import notFoundMiddleware from "./middleware/not-found.js";
+import corsMiddleware from "./middleware/cors.js";
 
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
@@ -33,6 +34,7 @@ app.use("/api/posts", postRouter);
 app.use("/api/profiles", profileRouter);
 
 //middleware
+app.use(corsMiddleware);
 app.use(notFoundMiddleware);
 app.use(errorHandleMiddleware);
 
