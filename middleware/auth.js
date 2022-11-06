@@ -15,7 +15,7 @@ async function auth(req, res, next) {
     req.user = { userId: payload.userId };
     next();
   } catch (error) {
-    throw new UnAuthenticatedError("Authentication Invalidinho");
+    throw new UnAuthenticatedError("Authentication Invalidinho", error);
   }
 }
 
